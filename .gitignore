@@ -27,3 +27,4 @@ src/vite-env.d.ts
 package-lock.json
 tsconfig.json
 tsconfig.node.json
+.vercel
