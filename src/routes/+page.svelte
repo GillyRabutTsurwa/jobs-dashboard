@@ -20,7 +20,7 @@
         tools: string[];
     }
 
-    let jobs: Job[] = data.jobs;
+    let jobs = data.jobs;
 </script>
 
 <Header />
