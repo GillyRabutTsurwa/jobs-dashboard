@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import Banner from "./lib/components/Banner.svelte";
 
     interface Job {
         id: number;
@@ -14,6 +14,7 @@
         contract: string;
         location: string;
         languages: string[];
+        tools: string[];
     }
 
     let promise: Promise<Job[]>;
@@ -30,17 +31,52 @@
         }
     }
 
-    promise = fetchData("../data.json");
+    promise = fetchData("./src/json/data.json");
     console.log(promise);
-
-    onMount(async () => {});
 </script>
 
+<Banner />
 {#await promise}
     <p>Loading Jobs</p>
 {:then jobs}
+    <ul class="jobs" />
     {#each jobs as currentJob}
-        <span>{currentJob.company}</span>
+        <li>
+            <figure>
+                <img src={currentJob.logo} alt={currentJob.company} />
+            </figure>
+            <div>
+                <div>
+                    <span>{currentJob.company}</span>
+                    {#if currentJob.new}
+                        <span>New</span>
+                    {/if}
+                    {#if currentJob.featured}
+                        <span>Featured</span>
+                    {/if}
+                </div>
+                <span>{currentJob.position}</span>
+                <div>
+                    <span>{currentJob.postedAt}</span>
+                    <span>{currentJob.contract}</span>
+                    <span>{currentJob.location}</span>
+                </div>
+            </div>
+            <div>
+                <span>{currentJob.role}</span>
+                <span>{currentJob.level}</span>
+                {#if currentJob.languages}
+                    {#each currentJob.languages as currentLanguage}
+                        <span>{currentLanguage}</span>
+                    {/each}
+                {/if}
+                {#if currentJob.tools}
+                    {#each currentJob.tools as currentTool}
+                        <span>{currentTool}</span>
+                    {/each}
+                {/if}
+            </div>
+        </li>
     {/each}
 {:catch error}
     <p style="color: red">{error.message}</p>
