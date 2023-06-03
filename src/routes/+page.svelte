@@ -1,6 +1,6 @@
 <script lang="ts">
     export let data;
-    import Banner from "$lib/components/Banner.svelte";
+    import Header from "$lib/components/Header.svelte";
 
     console.log(data);
 
@@ -20,10 +20,10 @@
         tools: string[];
     }
 
-    let jobs = data.jobs;
+    let jobs: Job[] = data.jobs;
 </script>
 
-<Banner />
+<Header />
 <div class="container-jobs">
     <ul class="jobs">
         {#each jobs as currentJob}

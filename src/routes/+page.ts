@@ -1,3 +1,19 @@
+interface Job {
+    id: number;
+    company: string;
+    logo: string;
+    new: boolean;
+    featured: boolean;
+    position: string;
+    role: string;
+    level: string;
+    postedAt: string;
+    contract: string;
+    location: string;
+    languages: string[];
+    tools: string[];
+}
+
 export function load({ fetch }) {
     async function fetchData<T>(url: string): Promise<T> {
         try {
@@ -5,13 +21,14 @@ export function load({ fetch }) {
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
-            return response.json();
+            const data = response.json() as T;
+            return data;
         } catch (error) {
             throw new Error("error");
         }
     }
 
     return {
-        jobs: fetchData("json/data.json"),
+        jobs: fetchData<Job[]>("json/data.json"),
     };
 }
