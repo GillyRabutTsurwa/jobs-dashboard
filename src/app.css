@@ -1,0 +1,31 @@
+:root {
+    --colour-primary: hsl(180, 29%, 50%);
+    --colour-secondary: hsl(180, 8%, 52%);
+    --colour-tertiary: hsl(180, 14%, 20%);
+    --colour-background: hsl(180, 52%, 96%);
+    --font-family: "League Spartan", sans-serif;
+    --font-size-global: 62.5%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+    min-height: 100vh;
+}
+
+html {
+    font-size: var(--font-size-global);
+}
+
+body {
+    color: var(--colour-primary);
+    font-family: var(--font-family);
+    background-color: var(--colour-background);
+    font-size: 1.6rem;
+}
