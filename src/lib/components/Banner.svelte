@@ -2,7 +2,7 @@
 
 <style>
     .banner {
-        height: 9rem;
+        height: 15rem;
         background-image: url(../src/assets/images/bg-header-desktop.svg);
         background-color: var(--colour-primary);
     }
