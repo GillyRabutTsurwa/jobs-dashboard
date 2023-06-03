@@ -1,10 +1,11 @@
 :root {
-    --colour-primary: hsl(180, 29%, 50%);
-    --colour-secondary: hsl(180, 8%, 52%);
-    --colour-tertiary: hsl(180, 14%, 20%);
-    --colour-background: hsl(180, 52%, 96%);
+    --colour-primary: rgb(91, 164, 164);
+    --colour-secondary: rgb(123, 142, 142);
+    --colour-tertiary: rgb(44, 58, 58);
+    --colour-background: rgb(239, 250, 250);
     --font-family: "League Spartan", sans-serif;
     --font-size-global: 62.5%;
+    --colour-secondary-values: 123, 142, 142;
 }
 
 * {
